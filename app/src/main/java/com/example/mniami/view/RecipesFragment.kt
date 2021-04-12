@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mniami.R
+import kotlinx.android.synthetic.main.fragment_recipes.view.*
 
 
 class RecipesFragment : Fragment() {
@@ -15,7 +16,11 @@ class RecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_recipes, container, false)
+        val view =  inflater.inflate(R.layout.fragment_recipes, container, false)
+
+        view.recyclerview.showShimmer()
+
+        return view
     }
 
 }
