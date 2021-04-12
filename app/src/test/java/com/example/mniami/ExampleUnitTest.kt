@@ -1,4 +1,4 @@
-package com.example.recipes
+package com.example.mniami
 
 import org.junit.Test
 
