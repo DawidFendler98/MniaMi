@@ -1,4 +1,4 @@
-package com.example.mniami.view
+package com.example.mniami.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

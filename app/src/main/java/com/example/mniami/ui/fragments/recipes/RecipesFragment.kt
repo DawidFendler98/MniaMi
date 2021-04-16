@@ -1,4 +1,4 @@
-package com.example.mniami.view
+package com.example.mniami.ui.fragments.recipes
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
