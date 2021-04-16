@@ -2,14 +2,16 @@ package com.example.mniami.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mniami.databinding.RecipesRowLayoutBinding
 import com.example.mniami.models.FoodRecipe
 import com.example.mniami.models.Result
+import com.example.mniami.util.RecipeDiffUtil
 
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
-    private var recipe = emptyList<Result>()
+    private var recipes = emptyList<Result>()
 
     class MyViewHolder(private val binding: RecipesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -41,16 +43,18 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: RecipesAdapter.MyViewHolder, position: Int) {
 
-         val currentResult  = recipe[position]
-        holder.bind(currentResult)
+         val currentRecipes  = recipes[position]
+        holder.bind(currentRecipes)
     }
 
     override fun getItemCount(): Int {
-            return  recipe.size
+            return  recipes.size
     }
 
     fun setData(newData: FoodRecipe){
-        recipe = newData.results
-        notifyDataSetChanged()
+        val recipesDiffUtil = RecipeDiffUtil(recipes, newData.results)
+        val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
+        recipes = newData.results
+        diffUtilResult.dispatchUpdatesTo(this)
     }
 }

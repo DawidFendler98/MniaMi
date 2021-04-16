@@ -9,4 +9,6 @@
     <string name="recipes_image">Recipies Image</string>
     <string name="heart_image">Heart Image</string>
     <string name="leaf_image">Leaf Image</string>
+    <string name="vegan">Vegan</string>
+    <string name="time_image">Time Image</string>
 </resources>
