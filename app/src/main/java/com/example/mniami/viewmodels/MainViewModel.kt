@@ -1,4 +1,4 @@
-package com.example.mniami.viewmodel
+package com.example.mniami.viewmodels
 
 import android.app.Application
 import android.content.Context
