@@ -5,6 +5,7 @@ import androidx.datastore.DataStore
 import androidx.datastore.preferences.*
 import com.example.mniami.util.Constants.Companion.DEFAULT_DIET_TYPE
 import com.example.mniami.util.Constants.Companion.DEFAULT_MEAL_TYPE
+import com.example.mniami.util.Constants.Companion.PREFERENCES_BACK_ONLINE
 
 import com.example.mniami.util.Constants.Companion.PREFERENCES_DIET_TYPE
 import com.example.mniami.util.Constants.Companion.PREFERENCES_DIET_TYPE_ID
@@ -28,6 +29,8 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
 
         val selectedDietType = preferencesKey<String>(PREFERENCES_DIET_TYPE)
         val selectedDietTypeId = preferencesKey<Int>(PREFERENCES_DIET_TYPE_ID)
+
+        val backOnline = preferencesKey<Boolean>(PREFERENCES_BACK_ONLINE)
     }
 
     private val dataStore: DataStore<Preferences> = context.createDataStore(
@@ -45,6 +48,12 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
             preferences[PreferenceKey.selectedMealTypeId] = mealTypeId
             preferences[PreferenceKey.selectedDietType] = dietType
             preferences[PreferenceKey.selectedDietTypeId] = dietTypeId
+        }
+    }
+
+    suspend fun saveBackOnline(backOnline: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[PreferenceKey.backOnline] = backOnline
         }
     }
 
@@ -69,6 +78,17 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
             )
         }
 
+    val readBackOnline: Flow<Boolean> = dataStore.data
+        .catch { exception ->
+                if (exception is IOException) {
+                    emit(emptyPreferences())
+                } else {
+                    throw exception
+                }
+        }.map { preferences ->
+            val backOnline = preferences[PreferenceKey.backOnline] ?: false
+            backOnline
+        }
 }
 
 data class MEALAndDietType(
