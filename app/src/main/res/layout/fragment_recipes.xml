@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/recipes_fab"
             style="@style/FloatingActionButton"
             android:layout_width="56dp"
             android:layout_height="56dp"

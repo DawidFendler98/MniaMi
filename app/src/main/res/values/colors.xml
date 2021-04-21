@@ -16,4 +16,8 @@
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
 
+
+    <color name="checkedChipBackgroundColor">#14C73E</color>
+    <color name="checkedChipTextColor">#14772B</color>
+
 </resources>
