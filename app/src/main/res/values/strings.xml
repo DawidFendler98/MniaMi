@@ -29,13 +29,19 @@
     <string name="snack">Snack</string>
     <string name="drink">Drink</string>
     <string name="iet_type">Diet Type</string>
-    <string name="gluten_free">Gluten Free</string>
     <string name="ketogenic">Ketogenic</string>
-    <string name="vegetarian">Vegetarian</string>
     <string name="pescetarian">Pescetarian</string>
     <string name="paleo">Paleo</string>
     <string name="primal">Primal</string>
     <string name="whole30">Whole30</string>
     <string name="apply">Apply</string>
     <string name="search">Search</string>
+    <string name="main_image_view">Main Image View</string>
+    <string name="time_image_view_in_overview_layout">Time Image View In Overview Layout</string>
+    <string name="likes_image_view_in_overview_layout">Likes image view in overview layout</string>
+    <string name="healthy">Healthy</string>
+    <string name="cheap">Cheap</string>
+    <string name="dairy_free">Dairy Free</string>
+    <string name="gluten_free">Gluten Free</string>
+    <string name="vegetarian">Vegetarian</string>
 </resources>
