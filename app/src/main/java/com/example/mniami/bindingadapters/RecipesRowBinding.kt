@@ -12,6 +12,7 @@ import coil.load
 import com.example.mniami.R
 import com.example.mniami.models.Result
 import com.example.mniami.ui.fragments.recipes.RecipesFragmentDirections
+import org.jsoup.Jsoup
 import java.lang.Exception
 
 class RecipesRowBinding {
@@ -76,6 +77,15 @@ class RecipesRowBinding {
             imageView.load(imageUrl) {
                 crossfade(600)
                 error(R.drawable.ic_error_placeholder)
+            }
+        }
+
+        @BindingAdapter("parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?){
+            if(description != null) {
+                val desc = Jsoup.parse(description).text()
+                textView.text = desc
             }
         }
 
