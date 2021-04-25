@@ -88,19 +88,17 @@
                     android:contentDescription="@string/heart_image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/heart_textView"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/heart_textView"
                     app:layout_constraintTop_toBottomOf="@+id/description_textView"
-                    app:layout_constraintVertical_bias="0.135"
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red" />
 
                 <TextView
                     android:id="@+id/heart_textView"
+                    setNumberOfLikes="@{result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
-                    setNumberOfLikes="@{result.aggregateLikes}"
                     android:textAlignment="center"
                     android:textColor="@color/red"
                     app:layout_constraintStart_toStartOf="@+id/description_textView"

@@ -23,12 +23,13 @@ class IngredientsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_ingredients, container, false)
 
         val args = arguments
         val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
+
 
         setupRecyclerView(view)
         myBundle?.extendedIngredients?.let { mAdapter.setData(it)}
@@ -38,6 +39,6 @@ class IngredientsFragment : Fragment() {
 
     private fun setupRecyclerView(view: View) {
         view.ingredients_recyclerview.adapter = mAdapter
-        view.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        view.ingredients_recyclerview.layoutManager = LinearLayoutManager(requireContext())
     }
 }
