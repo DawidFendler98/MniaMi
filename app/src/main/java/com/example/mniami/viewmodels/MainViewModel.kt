@@ -7,7 +7,8 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.mniami.data.Repository
-import com.example.mniami.data.database.RecipesEntity
+import com.example.mniami.data.database.entities.FavoritesEntity
+import com.example.mniami.data.database.entities.RecipesEntity
 import com.example.mniami.models.FoodRecipe
 import com.example.mniami.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
@@ -21,11 +22,28 @@ class MainViewModel @ViewModelInject constructor(
 
     /** ROOM DATABASE */
 
-    val readRecipe: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipe: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
+    val readFavoriteRecipes: LiveData<List<FavoritesEntity>> =
+        repository.local.readFavoriteRecipes().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
-        viewModelScope.launch  (Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+
+    private fun insertFavoriteRecipes(favoritesEntity: FavoritesEntity) =
+        viewModelScope.launch ( Dispatchers.IO ) {
+             repository.local.insertFavoriteRecipes(favoritesEntity)
+        }
+
+    private fun deleteFavoriteRecipes(favoritesEntity: FavoritesEntity) =
+        viewModelScope.launch ( Dispatchers.IO ) {
+            repository.local.deleteFavoriteRecipe(favoritesEntity)
+        }
+
+    private fun deleteAllFavoriteRecipes() =
+        viewModelScope.launch ( Dispatchers.IO ) {
+            repository.local.deleteAllFavoriteTRecipes()
         }
 
     /** RETROFIT*/
@@ -41,7 +59,6 @@ class MainViewModel @ViewModelInject constructor(
     }
 
 
-
     private suspend fun getRecipesSafeCall(queries: Map<String, String>) {
         recipesResponse.value = NetworkResult.Loading()
         if (hasInternetConnection()) {
@@ -50,7 +67,7 @@ class MainViewModel @ViewModelInject constructor(
                 recipesResponse.value = handleFoodRecipesResponse(response)
 
                 val foodRecipe = recipesResponse.value!!.data
-                if(foodRecipe != null ) {
+                if (foodRecipe != null) {
                     offlineCacheRecipes(foodRecipe)
                 }
 
@@ -62,7 +79,7 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    private  suspend fun searchRecipesSafeCall(searchQuery: Map<String, String>) {
+    private suspend fun searchRecipesSafeCall(searchQuery: Map<String, String>) {
         searchedRecipesResponse.value = NetworkResult.Loading()
         if (hasInternetConnection()) {
             try {

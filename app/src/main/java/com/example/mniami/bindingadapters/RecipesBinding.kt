@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.mniami.data.database.RecipesEntity
+import com.example.mniami.data.database.entities.RecipesEntity
 import com.example.mniami.models.FoodRecipe
 import com.example.mniami.util.NetworkResult
 
