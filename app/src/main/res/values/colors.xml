@@ -24,4 +24,6 @@
     <color name="cardBackgroundColor">@color/white</color>
     <color name="titleColor">@color/darker</color>
 
+    <color name="darkGreen">#054908</color>
+
 </resources>
