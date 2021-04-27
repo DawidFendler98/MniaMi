@@ -45,4 +45,6 @@
     <string name="gluten_free">Gluten Free</string>
     <string name="vegetarian">Vegetarian</string>
     <string name="save_to_favorites">Save to Favorites</string>
+    <string name="no_data_image_view">No data Image View</string>
+    <string name="no_favorites_recipes">No Favorites Recipes.</string>
 </resources>

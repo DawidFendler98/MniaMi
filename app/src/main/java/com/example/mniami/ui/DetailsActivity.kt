@@ -38,12 +38,12 @@ class DetailsActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val fragments = ArrayList<Fragment> ()
+        val fragments = ArrayList<Fragment>()
         fragments.add(OverviewFragment())
         fragments.add(IngredientsFragment())
         fragments.add(InstructionsFragment())
 
-        val titles = ArrayList<String> ()
+        val titles = ArrayList<String>()
         titles.add("Overview")
         titles.add("Ingredients")
         titles.add("Instructions")
@@ -66,36 +66,36 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
         val menuItem = menu?.findItem(R.id.save_to_favorites_menu)
-        checkSavedRecipes(menuItem!!)
+        checkSaveRecipes(menuItem!!)
         return true
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home) {
+        if (item.itemId == android.R.id.home) {
             finish()
-        } else if(item.itemId == R.id.save_to_favorites_menu) {
+        } else if( item.itemId == R.id.save_to_favorites_menu && !recipeSaved) {
             saveToFavorites(item)
-        }else if(item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
-            removeFromFavorites(item)
+        } else if(item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
+            removeFromFavorite(item)
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun checkSavedRecipes(menuItem: MenuItem) {
+    private fun checkSaveRecipes(menuItem: MenuItem) {
         mainViewModel.readFavoriteRecipes.observe(this, { favoritesEntity ->
             try {
-                for (savedRecipes in favoritesEntity) {
-                    if (savedRecipes.result.recipeId == args.result.recipeId) {
-                        changeMenuIconColor(menuItem, R.color.yellow)
-                        savedRecipeId = savedRecipes.id
+                for (savedRecipe in favoritesEntity) {
+                    if (savedRecipe.result.recipeId == args.result.recipeId) {
+                        changeMenuItemColor(menuItem, R.color.yellow)
+                        savedRecipeId = savedRecipe.id
                         recipeSaved = true
                     }else {
-                        changeMenuIconColor(menuItem, R.color.white)
+                        changeMenuItemColor(menuItem, R.color.white)
                     }
                 }
             } catch (e: Exception) {
-                Log.d(Companion.TAG, e.message.toString())
+                Log.d("Details Activity", e.message.toString())
             }
         })
     }
@@ -106,26 +106,25 @@ class DetailsActivity : AppCompatActivity() {
                 0,
                 args.result
             )
-
         mainViewModel.insertFavoriteRecipes(favoritesEntity)
-        changeMenuIconColor(item, R.color.yellow)
-        showSnackBar("Recipe saved.")
+        changeMenuItemColor(item, R.color.yellow)
+        showSnackbar("Recipe saved")
         recipeSaved = true
     }
 
-    private fun removeFromFavorites(menuItem: MenuItem) {
+    private fun removeFromFavorite(item: MenuItem) {
         val favoritesEntity =
             FavoritesEntity(
                 savedRecipeId,
                 args.result
             )
         mainViewModel.deleteFavoriteRecipes(favoritesEntity)
-        changeMenuIconColor(menuItem, R.color.white)
-        showSnackBar("Removed from Favorites.")
+        changeMenuItemColor(item, R.color.white)
+        showSnackbar("Removed from Favorites.")
         recipeSaved = false
     }
 
-    private fun showSnackBar(message: String) {
+    private fun showSnackbar(message: String) {
         Snackbar.make(
             detailsLayout,
             message,
@@ -134,11 +133,11 @@ class DetailsActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun changeMenuIconColor(item: MenuItem, color: Int) {
+    private fun changeMenuItemColor(item: MenuItem, color: Int) {
         item.icon.setTint(ContextCompat.getColor(this, color))
     }
-
-    companion object {
-        private const val TAG = "DetailsActivity"
-    }
 }
+
+
+
+
