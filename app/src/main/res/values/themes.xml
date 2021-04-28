@@ -4,6 +4,7 @@
         <item name="colorPrimaryVariant">@color/checkedChipBackgroundColor</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor">@color/darkGreen</item>
+        <item name="actionModeBackground">@color/dark</item>
 
     </style>
     <style name="FloatingActionButton" parent="android:Widget.Material.Button">

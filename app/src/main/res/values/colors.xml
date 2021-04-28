@@ -25,5 +25,6 @@
     <color name="titleColor">@color/darker</color>
 
     <color name="darkGreen">#054908</color>
+    <color name="cardBackgroundLightColor">#106200EA</color>
 
 </resources>
