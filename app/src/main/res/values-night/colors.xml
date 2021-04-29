@@ -16,22 +16,22 @@
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
 
-    <color name="backgroundColor">@color/lightGray</color>
-    <color name="checkedChipBackgroundColor">#14C73E</color>
-    <color name="checkedChipTextColor">#14772B</color>
-    <color name="placeholderColor">@color/mediumGray</color>
-    <color name="itemColor">@color/darker</color>
+    <color name="backgroundColor">@color/dark</color>
+    <color name="checkedChipBackgroundColor">@color/darkGreen</color>
+    <color name="checkedChipTextColor">@color/green</color>
+    <color name="placeholderColor">@color/darker</color>
+    <color name="itemColor">@color/mediumGray</color>
 
-    <color name="descriptionColor">@color/darkGray</color>
-    <color name="strokeColor">@color/lightMediumGray</color>
-    <color name="cardBackgroundColor">@color/white</color>
-    <color name="titleColor">@color/darker</color>
-    <color name="actionBarBackground">@color/checkedChipTextColor</color>
+    <color name="strokeColor">@color/lightGray</color>
+    <color name="cardBackgroundColor">@color/darker</color>
+    <color name="titleColor">@color/mediumGray</color>
+    <color name="descriptionColor">@color/mediumGray</color>
+    <color name="actionBarBackground">@color/darker</color>
 
     <color name="darkGreen">#054908</color>
     <color name="cardBackgroundLightColor">#106200EA</color>
 
-    <color name="bottomNavBackgroundLight">@color/white</color>
+
     <color name="bottomNavItemColor">@color/checkedChipBackgroundColor</color>
 
 </resources>

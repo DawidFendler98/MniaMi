@@ -4,12 +4,18 @@
         <item name="colorPrimary">@color/checkedChipTextColor</item>
         <item name="colorPrimaryVariant">@color/checkedChipBackgroundColor</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:statusBarColor">@color/darkGreen</item>
-
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="bottomNavigationStyle">@style/CustomBottomNavigationView</item>
+        <item name="actionModeBackground">@color/darker</item>
     </style>
 
     <style name="FloatingActionButton" parent="android:Widget.Material.Button">
         <item name="android:background">@drawable/gradient_fab</item>
+    </style>
+
+    <style name="CustomActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="background">@color/darker</item>
     </style>
 
     <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -29,17 +35,21 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="CustomToolBar" parent="Widget.AppCompat.Toolbar">
+        <item name="background">@color/darker</item>
+    </style>
+
     <style name="DetailsActivityStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/checkedChipTextColor</item>
         <item name="colorPrimaryVariant">@color/checkedChipBackgroundColor</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
-        <item name="android:statusBarColor">@color/darkGreen</item>
+        <item name="android:statusBarColor">@color/black</item>
 
     </style>
 
     <style name="CustomTableLayoutStyle" parent="Widget.Design.TabLayout">
-        <item name="android:background">@drawable/gradient_btn</item>
+        <item name="android:background">@color/darker</item>
         <item name="tabIndicatorColor">@color/white</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabSelectedTextColor">@color/white</item>
@@ -47,6 +57,11 @@
 
     <style name="CustomTabTextStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CustomBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/darker</item>
+        <item name="iconTint">@color/bottomNavItemColor</item>
     </style>
 
 </resources>

@@ -40,7 +40,6 @@ class FavoriteRecipesFragment : Fragment() {
         setupRecyclerView(binding.favoritesRecipesRecyclerView)
         setHasOptionsMenu(true)
 
-
         return binding.root
     }
 
