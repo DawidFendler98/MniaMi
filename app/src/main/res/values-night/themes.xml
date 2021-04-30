@@ -6,7 +6,6 @@
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor">@color/black</item>
         <item name="actionBarStyle">@style/CustomActionBarStyle</item>
-        <item name="bottomNavigationStyle">@style/CustomBottomNavigationView</item>
         <item name="actionModeBackground">@color/darker</item>
     </style>
 

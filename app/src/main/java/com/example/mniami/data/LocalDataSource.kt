@@ -4,7 +4,6 @@ import com.example.mniami.data.database.RecipesDao
 import com.example.mniami.data.database.entities.FavoritesEntity
 import com.example.mniami.data.database.entities.FoodJokeEntity
 import com.example.mniami.data.database.entities.RecipesEntity
-import com.example.mniami.models.FoodJoke
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -21,7 +20,7 @@ class LocalDataSource @Inject constructor(
     }
 
     fun readFoodJoke(): Flow<List<FoodJokeEntity>> {
-       return recipesDao.readFoodJoke()
+        return recipesDao.readFoodJoke()
     }
 
     suspend fun insertRecipes(recipesEntity: RecipesEntity) {

@@ -71,8 +71,8 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="invisible"
-            readApiResponse2="@{mainViewModel.recipesResponse}"
-            readDatabase2="@{mainViewModel.readRecipe}"
+            readApiResponse="@{mainViewModel.recipesResponse}"
+            readDatabase="@{mainViewModel.readRecipe}"
             app:layout_constraintEnd_toEndOf="@+id/error_imageView"
             app:layout_constraintStart_toStartOf="@+id/error_imageView"
             app:layout_constraintTop_toBottomOf="@+id/error_imageView" />

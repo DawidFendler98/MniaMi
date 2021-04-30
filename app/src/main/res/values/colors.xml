@@ -23,7 +23,7 @@
     <color name="itemColor">@color/darker</color>
 
     <color name="descriptionColor">@color/darkGray</color>
-    <color name="strokeColor">@color/lightMediumGray</color>
+    <color name="strokeColor">@color/black</color>
     <color name="cardBackgroundColor">@color/white</color>
     <color name="titleColor">@color/darker</color>
     <color name="actionBarBackground">@color/checkedChipTextColor</color>
@@ -31,7 +31,8 @@
     <color name="darkGreen">#054908</color>
     <color name="cardBackgroundLightColor">#106200EA</color>
 
-    <color name="bottomNavBackgroundLight">@color/white</color>
-    <color name="bottomNavItemColor">@color/checkedChipBackgroundColor</color>
+    <color name="bottomNavBackground">@color/darkGray</color>
+    <color name="bottomNavItemColor">#038710</color>
+
 
 </resources>

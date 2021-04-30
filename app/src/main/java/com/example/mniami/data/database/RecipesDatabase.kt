@@ -13,7 +13,7 @@ import com.example.mniami.data.database.entities.RecipesEntity
     exportSchema = false
 )
 @TypeConverters(RecipesTypeConverter::class)
-abstract class RecipesDatabase: RoomDatabase() {
+abstract class RecipesDatabase : RoomDatabase() {
 
     abstract fun recipesDao(): RecipesDao
 }

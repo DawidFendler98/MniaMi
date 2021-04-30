@@ -20,8 +20,8 @@ class NetworkListener : ConnectivityManager.NetworkCallback() {
         connectivityManager.allNetworks.forEach { network ->
             val networkCapability = connectivityManager.getNetworkCapabilities(network)
             networkCapability?.let {
-                if(it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                    isConnected  = true
+                if (it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                    isConnected = true
                     return@forEach
                 }
             }
@@ -41,6 +41,6 @@ class NetworkListener : ConnectivityManager.NetworkCallback() {
     }
 
     companion object {
-         const val TAG = "NetworkListener"
+        const val TAG = "NetworkListener"
     }
 }

@@ -30,7 +30,7 @@ class FavoriteRecipesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentFavoriteRecipesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
@@ -48,7 +48,7 @@ class FavoriteRecipesFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.deleteAll_favorite_recipes_menu) {
+        if (item.itemId == R.id.deleteAll_favorite_recipes_menu) {
             mainViewModel.deleteAllFavoriteRecipes()
             showSnackBar()
         }
@@ -60,17 +60,17 @@ class FavoriteRecipesFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    private fun showSnackBar(   ) {
+    private fun showSnackBar() {
         Snackbar.make(
             binding.root,
             "All recipes removed.",
             Snackbar.LENGTH_SHORT
-        ).setAction("Okay"){}
+        ).setAction("Okay") {}
             .show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
         mAdapter.clearContextualActionMode()
     }

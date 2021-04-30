@@ -37,21 +37,21 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesAdapter.MyViewHolder {
-            return MyViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder.from(parent)
     }
 
-    override fun onBindViewHolder(holder: RecipesAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-         val currentRecipes  = recipes[position]
+        val currentRecipes = recipes[position]
         holder.bind(currentRecipes)
     }
 
     override fun getItemCount(): Int {
-            return  recipes.size
+        return recipes.size
     }
 
-    fun setData(newData: FoodRecipe){
+    fun setData(newData: FoodRecipe) {
         val recipesDiffUtil = RecipeDiffUtil(recipes, newData.results)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData.results

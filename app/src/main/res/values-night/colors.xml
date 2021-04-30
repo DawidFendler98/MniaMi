@@ -31,7 +31,7 @@
     <color name="darkGreen">#054908</color>
     <color name="cardBackgroundLightColor">#106200EA</color>
 
-
+    <color name="bottomNavBackground">@color/lightGray</color>
     <color name="bottomNavItemColor">@color/checkedChipBackgroundColor</color>
 
 </resources>

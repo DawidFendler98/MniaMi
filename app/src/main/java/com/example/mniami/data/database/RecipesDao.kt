@@ -4,7 +4,6 @@ import androidx.room.*
 import com.example.mniami.data.database.entities.FavoritesEntity
 import com.example.mniami.data.database.entities.FoodJokeEntity
 import com.example.mniami.data.database.entities.RecipesEntity
-import com.example.mniami.models.FoodJoke
 import kotlinx.coroutines.flow.Flow
 
 

@@ -27,7 +27,7 @@ class FoodJokeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFoodJokeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.mainViewModel = mainViewModel
@@ -39,11 +39,12 @@ class FoodJokeFragment : Fragment() {
             when (response) {
                 is NetworkResult.Success -> {
                     binding.foodJokeTextView.text = response.data?.text
-                    if(response.data != null) {
+                    if (response.data != null) {
                         foodJoke = response.data.text
                     }
                 }
                 is NetworkResult.Error -> {
+                    loadDataFromCache()
                     Toast.makeText(
                         requireContext(),
                         response.message.toString(),
@@ -65,7 +66,7 @@ class FoodJokeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.share_food_joke_menu) {
+        if (item.itemId == R.id.share_food_joke_menu) {
             val shareIntent = Intent().apply {
                 this.action = Intent.ACTION_SEND
                 this.putExtra(Intent.EXTRA_TEXT, foodJoke)
@@ -77,14 +78,14 @@ class FoodJokeFragment : Fragment() {
     }
 
     private fun loadDataFromCache() {
-       lifecycleScope.launch {
-           mainViewModel.readFoodJoke.observe(viewLifecycleOwner, {database ->
-               if(!database.isNullOrEmpty()) {
-                   binding.foodJokeTextView.text = database[0].foodJoke.text
-                   foodJoke = database[0].foodJoke.text
-               }
-           })
-       }
+        lifecycleScope.launch {
+            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
+                if (!database.isNullOrEmpty()) {
+                    binding.foodJokeTextView.text = database[0].foodJoke.text
+                    foodJoke = database[0].foodJoke.text
+                }
+            })
+        }
     }
 
     override fun onDestroyView() {
